@@ -10,7 +10,9 @@ export const Shape = ({shape}: {shape:string}): React.ReactElement => {
             return <div className="m-4 h-12 w-12 bg-blue-700 [clip-path:polygon(50%_0%,_100%_25%,_100%_75%,_50%_100%,_0%_75%,_0%_25%)]"></div>;
         case 'triangle':
             return <div className='m-4 h-12 w-12  bg-blue-700 [clip-path:polygon(50%_0%,_0%_100%,_100%_100%)]'></div>;
+        // case 'empty':
+        //     return <div className='m-4 h-12 w-12 bg-blue-400'></div>;
         default:
-            return <div></div>
+            return <div className='m-4 h-12 w-12 bg-blue-400'></div>;
     }
 }
