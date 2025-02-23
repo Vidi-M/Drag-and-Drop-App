@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Drag-and-Drop Shape Transformation Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a **single-page application (SPA)** built using either **React** or **Angular** that allows users to interact with draggable shapes. The shapes change based on the quadrant where they are dropped. The interface is designed to be **responsive** and visually appealing, working smoothly on different screen sizes.
 
-## Available Scripts
+## Application Features
+- **Four Quadrants Layout:** The app is divided into **Top Left, Top Right, Bottom Left, and Bottom Right** quadrants.
+- **Initial Setup:** The Top Left quadrant contains five draggable **circle** shapes at the start.
+- **Drag-and-Drop Transformation:** Shapes can be dragged into any quadrant, and upon dropping, they change based on the target quadrant:
+  - **Top Left:** Shape remains a **circle**.
+  - **Bottom Left:** Shape changes into a **square**.
+  - **Top Right:** Shape changes into a **hexagon**.
+  - **Bottom Right:** Shape changes into a **triangle**.
+- **Version Control:** Project development is tracked using Git, with frequent commits reflecting progress.
 
-In the project directory, you can run:
+## Technologies Used
+- **React** (or **Angular**) for building the SPA
+- **HTML5 & CSS3** for styling and layout
+- **JavaScript** or **TypeScript** for interactive behavior
+- **Git** for version control
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
+- **Node.js** (Ensure you have the latest version installed)
+- **Git** for version control
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Steps to Run the Application
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/drag-drop-shape-transformation.git
+   cd drag-drop-shape-transformation
+   ```
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Run the Application:**
+   ```bash
+   npm start
+   ```
+   for development:
+   ```bash
+   npm run build
+   ```
+6. **View the Application:**
+   ```
+   http://localhost:3000
+   ```
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Design Descions
