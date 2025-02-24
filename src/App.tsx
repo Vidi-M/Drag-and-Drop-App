@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Draggable from 'react-draggable'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
-import ReactDOM from 'react-dom'
-import {Shape} from './components/Shapes';
 import Quadrant from './components/Quadrant';
 
 export default function App() {
@@ -23,19 +22,21 @@ export default function App() {
   }
 
   return (
-    <div className='h-screen flex flex-col'>
-      <header className='bg-blue-500 text-white p-4 text-center text-2xl font-bold'>
-        Drag and Drop App
-        <button onClick={resetShapes} className='bg-white text-blue-500 text-xl px-2 rounded-lg ml-10'>
-          RESET
-        </button>
-      </header>
-      <div className='flex-1 grid grid-cols-2 m-1 gap-1'>
-        <Quadrant num={quadrants.circle} shape="circle" />
-        <Quadrant num={quadrants.hexagon} shape="hexagon" />
-        <Quadrant num={quadrants.square} shape="square" />
-        <Quadrant num={quadrants.triangle} shape="triangle" />
+    <DndProvider backend={HTML5Backend}>
+      <div className='h-screen flex flex-col'>
+        <header className='bg-blue-500 text-white p-4 text-center text-2xl font-bold'>
+          Drag and Drop App
+          <button onClick={resetShapes} className='bg-white text-blue-500 text-xl px-2 rounded-lg ml-10'>
+            RESET
+          </button>
+        </header>
+        <div className='flex-1 grid grid-cols-2 m-1 gap-1'>
+          <Quadrant num={quadrants.circle} shape="circle" />
+          <Quadrant num={quadrants.hexagon} shape="hexagon" />
+          <Quadrant num={quadrants.square} shape="square" />
+          <Quadrant num={quadrants.triangle} shape="triangle" />
+        </div>
       </div>
-    </div>
+    </DndProvider>
   );
 }
