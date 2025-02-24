@@ -5,15 +5,16 @@ export const ItemTypes = {
     SHAPE: 'shape',
   };
 
-export const Shape = ({shape, from}: {shape:string, from:string}) => {
+export const Shape = ({shape, from}: {shape:string, from?:string}) => {
+    const canDrag = shape !== 'empty'
     const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemTypes.SHAPE,
+        canDrag: canDrag,
         item: {shape, from},
         collect: (monitor) => ({
           isDragging: !!monitor.isDragging(),
         }),
     }));
-    //   console.log(drag)
 
     const renderShape = () => {
         switch (shape) {
@@ -26,7 +27,7 @@ export const Shape = ({shape, from}: {shape:string, from:string}) => {
             case 'triangle':
                 return <div className='m-4 h-12 w-12  bg-blue-700 [clip-path:polygon(50%_0%,_0%_100%,_100%_100%)]'></div>;
             default:
-                return <div className='m-4 h-12 w-12 bg-blue-500'></div>;
+                return <div className='m-4 h-12 w-12 bg-blue-400'></div>;
         }
     };
 
@@ -45,7 +46,7 @@ export const Shape = ({shape, from}: {shape:string, from:string}) => {
             opacity: isDragging ? 0.5 : 1,
             fontSize: 25,
             fontWeight: 'bold',
-            cursor: 'move',
+            cursor: canDrag ? 'move' : '',
           }}>
             {renderShape()}
         </div>

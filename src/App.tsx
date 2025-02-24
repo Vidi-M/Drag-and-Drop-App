@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import Quadrant from './components/Quadrant';
 
 export default function App() {
-  const [quadrants, setQuadrants] = useState({
-    circle: 5,    // TopRight
-    hexagon: 0,   // TopLeft
-    square: 0,    // BotRight
-    triangle: 0,  // BotLeft
-  })
+  const getInitialState = () => {
+    const quadrants = localStorage.getItem("quadrants");
+    return quadrants ? 
+      JSON.parse(quadrants) :
+      {
+        circle: 2,    // TopRight
+        hexagon: 1,   // TopLeft
+        square: 1,    // BotRight
+        triangle: 1,  // BotLeft
+      }
+  }
+
+  const [quadrants, setQuadrants] = useState(getInitialState);
+
+  useEffect(() => {
+    localStorage.setItem("quadrants", JSON.stringify(quadrants))
+  }, [quadrants])
 
   const resetShapes = () => {
     setQuadrants({
       circle: 5,
       hexagon: 0,
       square: 0,
-      triangle: 5,
+      triangle: 0,
     })
   }
 
@@ -31,10 +42,10 @@ export default function App() {
           </button>
         </header>
         <div className='flex-1 grid grid-cols-2 m-1 gap-1'>
-          <Quadrant num={quadrants.circle} shape="circle" />
-          <Quadrant num={quadrants.hexagon} shape="hexagon" />
-          <Quadrant num={quadrants.square} shape="square" />
-          <Quadrant num={quadrants.triangle} shape="triangle" />
+          <Quadrant num={quadrants.circle} shape="circle" setQuadrants={setQuadrants} quadrants={quadrants} />
+          <Quadrant num={quadrants.hexagon} shape="hexagon" setQuadrants={setQuadrants} quadrants={quadrants} />
+          <Quadrant num={quadrants.square} shape="square" setQuadrants={setQuadrants} quadrants={quadrants} />
+          <Quadrant num={quadrants.triangle} shape="triangle" setQuadrants={setQuadrants} quadrants={quadrants} />
         </div>
       </div>
     </DndProvider>
