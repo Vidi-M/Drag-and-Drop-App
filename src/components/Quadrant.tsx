@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ItemTypes, Shape } from "./Shapes";
 import { useDrop } from "react-dnd";
 
@@ -20,14 +20,17 @@ export default function Quadrant({num, shape, setQuadrants, quadrants}: {num:num
           }),
     });
 
+    const ref = useRef<HTMLDivElement>(null);
+    drop(ref);
+
     return (    
-        <div ref={drop} className="bg-blue-400 flex items-center justify-center">
+        <div ref={ref} className="h-full bg-blue-400 grow-0 flex flex-wrap items-center justify-center">
             {num === 0 ? (
                 <Shape shape="empty"/> // Render a single placeholder shape
             ) : (
                 // Render the actual shapes if num > 0
                 Array.from({ length: num }).map((_, index) => (
-                <Shape key={index} shape={shape} from={shape}/>
+                    <Shape key={index} shape={shape} from={shape}/>
                 ))
             )}
         </div>

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react' 
-import { useDrag } from 'react-dnd';
+import React, { useEffect, useRef } from 'react' 
+import { DragPreviewImage, useDrag } from 'react-dnd';
+import { shapeImage } from './shapeImage';
+
 
 export const ItemTypes = {
     SHAPE: 'shape',
@@ -7,7 +9,7 @@ export const ItemTypes = {
 
 export const Shape = ({shape, from}: {shape:string, from?:string}) => {
     const canDrag = shape !== 'empty'
-    const [{ isDragging }, drag] = useDrag(() => ({
+    const [{ isDragging }, drag, preview] = useDrag(() => ({
         type: ItemTypes.SHAPE,
         canDrag: canDrag,
         item: {shape, from},
@@ -16,40 +18,37 @@ export const Shape = ({shape, from}: {shape:string, from?:string}) => {
         }),
     }));
 
+    const ref = useRef<HTMLDivElement>(null);
+    drag(ref);
+
     const renderShape = () => {
         switch (shape) {
             case 'circle':
-                return <div className="mx-4 h-12 w-12 rounded-full bg-blue-700"></div>;
+                return <div className='mx-4 size-16 rounded-full bg-blue-700 hover:bg-blue-600'></div>;
             case 'square':
-                return <div className="m-4 h-12 w-12 bg-blue-700"></div>;
+                return <div className="mx-4 size-16 bg-blue-700 hover:bg-blue-600"></div>;
             case 'hexagon':
-                return <div className="m-4 h-12 w-12 bg-blue-700 [clip-path:polygon(50%_0%,_100%_25%,_100%_75%,_50%_100%,_0%_75%,_0%_25%)]"></div>;
+                return <div className="mx-4 size-16 bg-blue-700 hover:bg-blue-600 [clip-path:polygon(50%_0%,_100%_25%,_100%_75%,_50%_100%,_0%_75%,_0%_25%)]"></div>;
             case 'triangle':
-                return <div className='m-4 h-12 w-12  bg-blue-700 [clip-path:polygon(50%_0%,_0%_100%,_100%_100%)]'></div>;
+                return <div className='mx-4 size-16  bg-blue-700 hover:bg-blue-600 [clip-path:polygon(50%_0%,_0%_100%,_100%_100%)]'></div>;
             default:
-                return <div className='m-4 h-12 w-12 bg-blue-400'></div>;
+                return <div className='mx-4 size-16 bg-blue-400'></div>;
         }
     };
 
-    let shapeComponent = renderShape();
-
-    // useEffect(
-    //     () => {
-    //         shapeComponent = renderShape();
-    //     } , []
-    // )
-
     return (
-        // shapeComponent
-        <div ref={drag}
-         style={{
-            opacity: isDragging ? 0.5 : 1,
-            fontSize: 25,
-            fontWeight: 'bold',
-            cursor: canDrag ? 'move' : '',
-          }}>
-            {renderShape()}
-        </div>
+        <>
+            <DragPreviewImage connect={preview} src={shapeImage}/>
+            <div 
+                ref={ref}
+                style={{
+                    opacity: isDragging ? 0.5 : 1,
+                    cursor: canDrag ? 'move' : '',
+                }}
+            >
+                {renderShape()}
+            </div>
+        </>
         
     )
 }

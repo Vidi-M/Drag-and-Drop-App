@@ -10,10 +10,10 @@ export default function App() {
     return quadrants ? 
       JSON.parse(quadrants) :
       {
-        circle: 2,    // TopRight
-        hexagon: 1,   // TopLeft
-        square: 1,    // BotRight
-        triangle: 1,  // BotLeft
+        circle: 5,    // TopRight
+        hexagon: 0,   // TopLeft
+        square: 0,    // BotRight
+        triangle: 0,  // BotLeft
       }
   }
 
@@ -41,7 +41,7 @@ export default function App() {
             RESET
           </button>
         </header>
-        <div className='flex-1 grid grid-cols-2 m-1 gap-1'>
+        <div className='h-full grid grid-cols-2 m-1 gap-1'>
           <Quadrant num={quadrants.circle} shape="circle" setQuadrants={setQuadrants} quadrants={quadrants} />
           <Quadrant num={quadrants.hexagon} shape="hexagon" setQuadrants={setQuadrants} quadrants={quadrants} />
           <Quadrant num={quadrants.square} shape="square" setQuadrants={setQuadrants} quadrants={quadrants} />
