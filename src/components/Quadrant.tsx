@@ -24,7 +24,7 @@ export default function Quadrant({num, shape, setQuadrants, quadrants}: {num:num
     drop(ref);
 
     return (    
-        <div ref={ref} className="h-full bg-blue-400 grow-0 flex flex-wrap items-center justify-center">
+        <div ref={ref} className="h-full bg-blue-400 border border-blue-500 to-blue-500 rounded-lg grow-0 flex flex-wrap items-center justify-center">
             {num === 0 ? (
                 <Shape shape="empty"/> // Render a single placeholder shape
             ) : (

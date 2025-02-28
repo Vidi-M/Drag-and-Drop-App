@@ -22,6 +22,7 @@ export const Shape = ({shape, from}: {shape:string, from?:string}) => {
     drag(ref);
 
     const renderShape = () => {
+        
         switch (shape) {
             case 'circle':
                 return <div className='mx-4 size-16 rounded-full bg-blue-700 hover:bg-blue-600'></div>;
