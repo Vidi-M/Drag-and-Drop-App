@@ -34,18 +34,14 @@ This project is a single-page application built using **React** that allows user
 ### Steps to Run the Application
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/drag-drop-shape-transformation.git
-   cd drag-drop-shape-transformation
+   git clone https://github.com/Vidi-M/Drag-and-Drop-App.git
+   cd drag-and-drop-app
    ```
 2. **Install Dependencies:**
    ```bash
    npm install
    ```
-3. **Navigate to project directory:**
-   ```bash
-    cd drag-and-drop-app
-   ```
-4. **Run the Application:**
+3. **Run the Application:**
    ```bash
    npm start
    ```
@@ -53,7 +49,7 @@ This project is a single-page application built using **React** that allows user
    ```bash
    npm start dev
    ```
-6. **View the Application:**
+4. **View the Application:**
    ```
    http://localhost:3000
    ```
