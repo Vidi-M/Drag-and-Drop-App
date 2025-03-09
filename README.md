@@ -81,26 +81,26 @@ This project is a single-page application built using **React** that allows user
 
 ## Challenges
 ### Drag and Drop State Management
-  ##### Issue:
-    How to make each quadrant render the correct number of shapes inside
-  ##### Solution:
-    Used react hook useState() to track the shape count in each quadrant and update them when there is a change
-    Used react hook useDrop() to track and update where the dragged shape originated and where it has been dropped.
+  #### Issue:
+  > How to make each quadrant render the correct number of shapes inside
+  #### Solution:
+  > Used react hook useState() to track the shape count in each quadrant and update them when there is a change
+  > Used react hook useDrop() to track and update where the dragged shape originated and where it has been dropped.
 
 ### useDrag() Default Behaviour:
-  ##### Issue:
-    When dragging a shape it would screenshot around the shape including the background which looked messy.
-  ##### Solution:
-    Added a Drag preview image to display instead of the screenshot
+  #### Issue:
+  > When dragging a shape it would screenshot around the shape including the background which looked messy.
+  #### Solution:
+  > Added a Drag preview image to display instead of the screenshot
 
 ### Persist State After Refresh:
-  ##### Issue:
-    The shapes would reset to their default position when the page is reloaded. I wanted it to persist.
-  ##### Solution:
-    Used local storage to save the quadrant state when there was a change. A full backend is not required for such a simple use case.
+  #### Issue:
+  > The shapes would reset to their default position when the page is reloaded. I wanted it to persist.
+  #### Solution:
+  > Used local storage to save the quadrant state when there was a change. A full backend is not required for such a simple use case.
 
 ### Reset State:
-  ##### Issue:
-    Due to the local stoarage there is no way to return the shapes to their original location non-manually.
-  ##### Solution:
-    Created a button that when clicked will set the state to the deafult state.
+  #### Issue:
+  > Due to the local stoarage there is no way to return the shapes to their original location non-manually.
+  #### Solution:
+  > Created a button that when clicked will set the state to the deafult state.
