@@ -85,6 +85,7 @@ This project is a single-page application built using **React** that allows user
   > How to make each quadrant render the correct number of shapes inside
   #### Solution:
   > Used react hook useState() to track the shape count in each quadrant and update them when there is a change
+
   > Used react hook useDrop() to track and update where the dragged shape originated and where it has been dropped.
 
 ### useDrag() Default Behaviour:
